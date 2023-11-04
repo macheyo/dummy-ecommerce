@@ -45,7 +45,8 @@ export default function Checkout({ totalCost, getTotalItems }) {
           <strong>{` $${totalCost}`}</strong>
         </dd>
       </dl>
-      <Button color="green">Checkout with Fin</Button>
+      
+      <Button color="green" onClick={()=>{window.location.href='https://qa-client.fin-connect.net/apply?product=35&merchant=a267e0d0-b1ea-49e1-b307-d87ecb6109ebxx§'}}>Checkout with Fin</Button>
     </StyledCheckout>
   );
 }
