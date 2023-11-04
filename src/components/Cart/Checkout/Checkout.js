@@ -1,5 +1,5 @@
-import { Button, Header, Segment } from "semantic-ui-react";
-import styled from "styled-components";
+import { Button, Header, Segment } from 'semantic-ui-react';
+import styled from 'styled-components';
 
 const StyledCheckout = styled(Segment)`
   display: flex;
