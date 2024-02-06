@@ -27,7 +27,7 @@ const HeroTexts = () => (
 	<HeroTextsContainer>
 		<MainHeader>
 			Welcome to 
-			<strong> THEMERC</strong>
+			<strong> SMILEWAY</strong>
 		</MainHeader>
 		<SecondaryHeader>A platform built for Random<strong> DUMMY</strong> products</SecondaryHeader>
 	</HeroTextsContainer>

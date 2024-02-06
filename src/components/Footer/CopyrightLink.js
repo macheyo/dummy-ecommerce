@@ -10,7 +10,7 @@ export default function CopyrightLink() {
 			href='https://github.com/bvrbryn445'
 			target='_blank'
 		>
-			{`©Themerc ${currentYear}`}
+			{`©Fin ${currentYear}`}
 		</FooterLink>
 	)
 }
