@@ -80,7 +80,7 @@ export default function TableItem(props) {
 					</ItemQuantityInputs>
 				</Table.Cell>
 				<Table.Cell colSpan='5' textAlign='center'>
-					{`$${roundedPrice}`}
+					{`R${roundedPrice}`}
 				</Table.Cell>
 			</Table.Row>
 		</Table.Body >

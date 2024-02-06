@@ -57,7 +57,7 @@ export default function ProductsTable(props) {
 					</Table.HeaderCell>
 					<Table.HeaderCell colSpan='5' textAlign='center'>
 						<strong>
-							{`$${totalCost}`}
+							{`R${totalCost}`}
 						</strong>
 					</Table.HeaderCell>
 				</Table.Row>

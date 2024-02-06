@@ -10,12 +10,12 @@ export default function ProductPrices(props) {
 	return (
 		<span>
 			<Price>
-				${discount ? roundedPrice : price}
+				R{discount ? roundedPrice : price}
 			</Price>
 			{
 				discount &&
 				<PrevPrice>
-					${price}
+					R{price}
 				</PrevPrice>
 			}
 		</span>
