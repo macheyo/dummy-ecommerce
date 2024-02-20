@@ -17,9 +17,9 @@ const ProductList = (props) => {
 	});
 
 	// render iterated product card elements
-	const IteratedProducts = filteredProducts.map(product => (
+	const IteratedProducts = filteredProducts.map((product, key) => (
 		<ProductCard
-			key={`card-${product.id}`}
+			key={`card-${key}`}
 			product={product}
 			addItemToCart={addItemToCart}
 			getItemQty={getItemQty}

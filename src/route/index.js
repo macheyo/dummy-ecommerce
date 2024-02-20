@@ -14,6 +14,7 @@ export default function Page(props) {
 		handleItemsArranger,
 		mapDispatchToProps,
 		getItemQty,
+		cart_id,
 	} = props;
 
 	const {
@@ -45,6 +46,7 @@ export default function Page(props) {
 				removeItemFromCart={removeItemFromCart}
 				decrementItemQty={decrementItemQty}
 				cart={cart}
+				cart_id={cart_id}
 			/>,
 		},
 		{
