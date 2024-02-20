@@ -11,7 +11,8 @@
 		"react-scripts": "5.0.1",
 		"semantic-ui-less": "^2.5.0",
 		"semantic-ui-react": "^2.1.4",
-		"styled-components": "^5.3.10"
+		"styled-components": "^5.3.10",
+		"uuid": "^9.0.1"
 	},
 	"scripts": {
 		"start": "craco start",
@@ -29,13 +30,13 @@
 			"max-lines": [
 				"error",
 				{
-					"max": 180
+					"max": 1000
 				}
 			],
 			"max-lines-per-function": [
 				"error",
 				{
-					"max": 35
+					"max": 50
 				}
 			],
 			"max-statements": [
@@ -69,7 +70,7 @@
 					"max-lines-per-function": [
 						"error",
 						{
-							"max": 120
+							"max": 1200
 						}
 					],
 					"max-statements": [

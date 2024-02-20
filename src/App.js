@@ -4,6 +4,7 @@ import {
 import './App.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import { stateReducer } from './js/reducers/stateReducer';
+import {v4 as uuid} from 'uuid'
 
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -15,7 +16,9 @@ const { limit, skip } = DUMMY_JSON_ARGS;
 const jsonURL = `https://dummyjson.com/products?limit=${limit}&skip=${skip}`;
 
 export default function App() {
-	const initialState = { products: [], cart: [] };
+	console.log(!!localStorage.getItem('cart'), !!localStorage.getItem('cart_id'));
+	console.log(localStorage.getItem('cart_id'));
+	const initialState = { products: [], cart: !!localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [], cart_id : !!localStorage.getItem('cart_id')? JSON.parse(localStorage.getItem('cart_id')) : '' };
 	const [state, dispatch] = useReducer(stateReducer, initialState);
 	const [itemsArranger, setItemsArranger] = useState({
 		// type of methods used to arrange products in shop
@@ -46,13 +49,9 @@ export default function App() {
 
 	const handleItemsArranger = useCallback(({ value, type }) => {
 		const lastMethodUsed = type === itemsArranger.previous.usedType;
-		const isAnyValueChanged = !(lastMethodUsed
-			&& value === itemsArranger.methods[lastMethodUsed]);
-
+		const isAnyValueChanged = !(lastMethodUsed && value === itemsArranger.methods[lastMethodUsed]);
 		//if nothing changed skip the state update
 		if (!isAnyValueChanged) return;
-
-		// if there is no type, directly insert value
 		// as the set of properties inside the method prop 
 		if (!type) {
 			setItemsArranger(itemsArranger => ({
@@ -106,11 +105,20 @@ export default function App() {
 		removeItemFromCart, 
 		resetCart,
 	};
+	const [currentCart, setCurrentCart] = useState([])
+
+	useEffect(()=>{
+		console.log('the state is : ', state)
+		localStorage.setItem('cart', JSON.stringify(state.cart))
+		localStorage.setItem('cart_id', JSON.stringify(state.cart_id))
+		setCurrentCart(JSON.parse(localStorage.getItem('cart')))
+	},[state])
 
 	// compile props to pass to page components
 	const propsForViews = {
 		products: state.products,
-		cart: state.cart,
+		cart: currentCart,
+		cart_id: state.cart_id,
 		itemsArrangerMethods: itemsArranger.methods,
 		getTotalItemsInCart,
 		getItemQty,

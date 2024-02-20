@@ -22,7 +22,7 @@ const StyledGrid = styled(Grid)`
 	}
 `
 export default function Cart(props) {
-	const { cart } = props;
+	const { cart, cart_id, resetCart } = props;
 	const [isLoading, setIsLoading] = useState(true);
 	const [totalCost, setTotalCost] = useState(0);
 
@@ -42,7 +42,6 @@ export default function Cart(props) {
 			return DecimalPrecision.round(rawTotalCost, 2);
 		}
 		const newTotalCost = calculatedTotalCost(cart);
-
 		setTotalCost(prevTotalCost =>
 			prevTotalCost + (newTotalCost - prevTotalCost));
 	}, [cart]);
@@ -84,6 +83,8 @@ export default function Cart(props) {
 								<Checkout
 									totalCost={totalCost}
 									getTotalItems={getTotalItems}
+									cart_id={cart_id}
+									resetCart={resetCart}
 								/>
 							</Grid.Column>
 							<Grid.Column
@@ -95,6 +96,8 @@ export default function Cart(props) {
 								<Checkout
 									totalCost={totalCost}
 									getTotalItems={getTotalItems}
+									cart_id={cart_id}
+									resetCart={resetCart}
 								/>
 							</Grid.Column>
 						</Grid.Row>
