@@ -4,13 +4,9 @@ import {
   Header,
   Segment,
   Modal,
-  Image,
   Input,
-  Label,
-  Form,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
-import Shop from '../../../views/Shop';
 import { useLocation } from 'react-router-dom';
 
 const StyledCheckout = styled(Segment)`
@@ -35,12 +31,6 @@ const StyledCheckout = styled(Segment)`
   }
 `;
 
-const StyledButtons = styled(Segment)`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
 export const ItemCount = styled.div`
   color: gray;
   font-weight: 300;
@@ -52,22 +42,21 @@ export default function Checkout({
   resetCart,
 }) {
   const fin_pay_url = process.env.REACT_APP_CHECKOUT_URL;
-  const shop_url = process.env.PUBLIC_URL;
   const [openPaymentDetails, setOpenPaymentDetails] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
   const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [transactionComplete, setComplete] = useState(false);
   const complete_cart_id =
-    new URLSearchParams(location.search).get('fulfill');
+    new URLSearchParams(location.search).get('fulfill') || '';
 
   useEffect(() => {
-    if (!!complete_cart_id) {
+    if (complete_cart_id !== '') {
       console.log('Bob is your uncle');
       setComplete(true);
       resetCart();
     }
-  }, [complete_cart_id]);
+  }, [complete_cart_id, resetCart]);
 
   const baseURL = window.location.href;
 
@@ -115,12 +104,13 @@ export default function Checkout({
       </dl>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <Button
-          color='green'
+          color='grey'
           onClick={() => {
             window.location.href = `https://qa-client.fin-connect.net/apply?product=35&merchant=a267e0d0-b1ea-49e1-b307-d87ecb6109eb&amount=${totalCost}&term=6`;
           }}
         >
-          Checkout with Fin
+          <div style={{paddingBottom:'10px', textAlign:'left'}}>Buy now, pay later</div>
+          <div style={{paddingBottom:'10px', textAlign:'left'}}>Only {totalCost/4} X 4 Interest free payments</div>
         </Button>
         <Button
           color='green'
