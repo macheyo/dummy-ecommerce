@@ -110,7 +110,11 @@ export default function Checkout({
           }}
         >
           <div style={{paddingBottom:'10px', textAlign:'left'}}>Buy now, pay later</div>
-          <div style={{paddingBottom:'10px', textAlign:'left'}}>Only {totalCost/4} X 4 Interest free payments</div>
+          <div style={{paddingBottom:'10px', textAlign:'left'}}>Only KES {
+          Number((Number(totalCost)*1.03)/4).toLocaleString(undefined, {
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0,
+                        })} X 4 installments <br/> at 7.5 % annual interest</div>
         </Button>
         <Button
           color='green'
