@@ -4,7 +4,6 @@ import {
 import './App.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import { stateReducer } from './js/reducers/stateReducer';
-import {v4 as uuid} from 'uuid'
 
 import Footer from './components/Footer';
 import Header from './components/Header';
