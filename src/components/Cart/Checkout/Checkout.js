@@ -58,18 +58,13 @@ export default function Checkout({
     }
   }, [complete_cart_id, resetCart]);
 
-  const baseURL = window.location.href;
-
   const checkoutWithFinPay = () => {
     setLoading(true);
     const queryParams = new URLSearchParams({
-      a: totalCost,
-      crr: 'paybill', //paybill or buygoods
-      partyB: '542542',
-      billRef: 'JohnDoe',
-      p: phoneNumber,
-      on: cart_id,
-      redirectTo: baseURL + '?fulfill=' + cart_id,
+      amt: totalCost, // order amount
+      on: cart_id, // unique order number
+      pn: phoneNumber, // user phone number
+      tenant: '7b29e947-ef2e-4d34-8953-c66ef3da9970', // tenant id for integrator
     });
 
     console.log('Here are the query params', queryParams.toString());
