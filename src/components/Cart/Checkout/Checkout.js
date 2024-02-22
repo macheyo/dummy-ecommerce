@@ -58,8 +58,6 @@ export default function Checkout({
     }
   }, [complete_cart_id, resetCart]);
 
-  const baseURL = window.location.href;
-
   const checkoutWithFinPay = () => {
     setLoading(true);
     const queryParams = new URLSearchParams({
