@@ -104,7 +104,7 @@ export default function Checkout({
             window.location.href = `https://qa-client.fin-connect.net/apply?product=35&merchant=a267e0d0-b1ea-49e1-b307-d87ecb6109eb&amount=${totalCost}&term=6`;
           }}
         >
-          <div style={{paddingBottom:'10px', textAlign:'left'}}>Buy now, pay later</div>
+          <div style={{paddingBottom:'10px', textAlign:'left'}}>Click here to checkout with Fin</div>
           <div style={{paddingBottom:'10px', textAlign:'left'}}>Only R {
           Number((Number(totalCost)*1.03)/4).toLocaleString(undefined, {
                             minimumFractionDigits: 0,
