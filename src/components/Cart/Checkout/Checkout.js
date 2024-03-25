@@ -112,14 +112,14 @@ export default function Checkout({
                             maximumFractionDigits: 0,
                         })} X 4 installments <br/> at 7.5 % annual interest</div>
         </Button>
-        {/* <Button
+        <Button
           color='green'
           onClick={() => {
             setOpenPaymentDetails(true);
           }}
         >
-          Checkout with Fin Pay
-        </Button> */}
+          Checkout with Fin using a pre-approved credit limit
+        </Button>
       </div>
       <Modal
         onClose={() => closeModal()}
