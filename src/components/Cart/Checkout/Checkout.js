@@ -65,6 +65,7 @@ export default function Checkout({
       on: cart_id, // unique order number
       pn: phoneNumber, // user phone number
       tenant: '7b29e947-ef2e-4d34-8953-c66ef3da9970', // tenant id for integrator
+      referer: `https://fin-shop-stagging.netlify.app/cart?fulfill=${cart_id}`,
     });
 
     console.log('Here are the query params', queryParams.toString());
